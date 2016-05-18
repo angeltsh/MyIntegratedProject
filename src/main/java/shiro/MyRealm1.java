@@ -11,8 +11,6 @@ import org.apache.shiro.realm.Realm;
 
 public class MyRealm1 implements Realm {
 
-	private static int i = 0;
-
 	public String getName() {
 		return "myrealm1";
 	}
@@ -26,8 +24,6 @@ public class MyRealm1 implements Realm {
 			throws AuthenticationException {
 		String username = (String) token.getPrincipal(); // 得到用户名
 		String password = new String((char[]) token.getCredentials()); // 得到密码
-
-		System.out.println(i++);
 
 		if (!"zhang".equals(username)) {
 			throw new UnknownAccountException(); // 如果用户名错误
